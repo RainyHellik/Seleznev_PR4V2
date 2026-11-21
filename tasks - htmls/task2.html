@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задача 2 — Расчет конуса</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .form-box { width: 340px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input { width: 100%; padding: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .result { margin-top: 15px; padding: 10px; background: #f4f4f4; font-weight: bold; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="form-box">
+    <h3>Расчет параметров конуса</h3>
+    
+    <div class="input-group">
+        <label for="r">Радиус основания (r):</label>
+        <input type="number" id="r" placeholder="Введите радиус r">
+    </div>
+
+    <div class="input-group">
+        <label for="h">Высота конуса (h):</label>
+        <input type="number" id="h" placeholder="Введите высоту h">
+    </div>
+
+    <button type="button" onclick="calc2()">Рассчитать</button>
+
+    <div class="result" id="res2">
+        Образующая = —<br>
+        Объем конуса = —<br>
+        Площадь боковой поверхности = —
+    </div>
+</div>
+
+<script>
+    function calc2() {
+        let r = parseInt(document.getElementById('r').value) || 0;
+        let h = parseInt(document.getElementById('h').value) || 0;
+        let l = Math.sqrt(r ** 2 + h ** 2);
+        let V = (1 / 3) * Math.PI * (r ** 2) * h;
+        let Sbok = Math.PI * r * l;
+        
+        document.getElementById('res2').innerHTML = 
+            "Образующая = " + Math.trunc(l) + "<br>" +
+            "Объем конуса = " + Math.trunc(V) + "<br>" +
+            "Площадь боковой поверхности = " + Math.trunc(Sbok);
+    }
+</script>
+
+</body>
+</html>
